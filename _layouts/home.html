@@ -15,12 +15,6 @@ layout: default
         <article>
           <div class="feed-meta">
             <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %Y" }}</time>
-            {%- if post.categories.size > 0 %}
-            <span class="sep">&middot;</span>
-            <span>{{ post.categories | first }}</span>
-            {%- endif %}
-            <span class="sep">&middot;</span>
-            <span>{{ post.content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
           </div>
 
           <h2 class="feed-title">
