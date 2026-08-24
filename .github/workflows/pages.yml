@@ -34,6 +34,11 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # Enable Pages via the API on the first run if it isn't already on,
+          # so deployment needs no manual toggle in repository settings.
+          # Requires the pages: write permission granted above.
+          enablement: true
 
       - name: Build site
         # configure-pages exports the repo's real base_path, which overrides
