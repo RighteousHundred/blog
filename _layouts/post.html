@@ -93,7 +93,7 @@ layout: default
 
     var current = null;
     function update() {
-      var line = 140;                       /* a little below the sticky header */
+      var line = 120;                       /* a little below the top of the viewport */
       var index = 0;
       for (var i = 0; i < targets.length; i++) {
         if (targets[i] && targets[i].getBoundingClientRect().top <= line) index = i;

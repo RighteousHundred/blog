@@ -21,6 +21,8 @@
   --rule:        rgba(235, 228, 216, 0.13);
   --rule-strong: rgba(235, 228, 216, 0.24);
 
+  --toc-current: #ffffff;
+
   --serif: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman", serif;
   --mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
@@ -41,6 +43,8 @@
 
   --rule:        rgba(43, 40, 35, 0.15);
   --rule-strong: rgba(43, 40, 35, 0.28);
+
+  --toc-current: #000000;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -91,15 +95,12 @@ body {
 /* --- Header -------------------------------------------------------------- */
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: var(--bg);
   padding: 1.25rem 0;
 }
 .site-header .shell {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
@@ -111,12 +112,6 @@ body {
   text-decoration: none;
 }
 .site-mark:hover { color: var(--ink); }
-
-.header-spacer { flex: 1; }
-
-.site-nav { display: flex; gap: 1.5rem; font-size: 1rem; }
-.site-nav a { color: var(--ink-muted); text-decoration: none; }
-.site-nav a:hover { color: var(--ink-strong); }
 
 /* Theme switch — a pill with a travelling knob. */
 .theme-toggle {
@@ -261,7 +256,7 @@ body {
   text-decoration: none;
 }
 .toc a:hover { color: var(--ink-strong); }
-.toc a.is-current { color: var(--ink-strong); }
+.toc a.is-current { color: var(--toc-current); }
 
 .post-header { padding-top: 3rem; }
 .post-title {
@@ -292,14 +287,14 @@ body {
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--ink-strong);
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 2rem;
 }
 .post-body h3 {
   margin: 2.5rem 0 .9rem;
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--ink-strong);
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 2rem;
 }
 
 .post-body a {
