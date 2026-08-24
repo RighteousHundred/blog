@@ -26,7 +26,7 @@
   --serif: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman", serif;
   --mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-  --measure: 45rem;   /* the one column everything aligns to */
+  --measure: 49rem;   /* the one column everything aligns to */
   --toc:     15rem;   /* contents rail, parked in the left margin */
   --toc-gap: 3rem;
 }
@@ -147,8 +147,8 @@ body {
 .masthead { padding: 5rem 0 3rem; }
 .masthead-title {
   margin: 0 0 .75rem;
-  font-size: clamp(2.75rem, 6vw, 4rem);
-  font-weight: 600;
+  font-size: clamp(2.5rem, 5.2vw, 3.8rem);
+  font-weight: 560;
   line-height: 1.02;
   letter-spacing: -0.025em;
   color: var(--ink-strong);
@@ -230,9 +230,10 @@ body {
   padding: 0;
   border: 0;
   background: none;
-  color: var(--ink-muted);
+  color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.5rem;
+  font-size: 1.9rem;
+  font-weight: 300;
   line-height: 1;
   cursor: pointer;
 }
@@ -248,10 +249,10 @@ body {
   color: var(--ink-strong);
 }
 .toc ol { list-style: none; margin: 0; padding: 0; }
-.toc li { margin-bottom: .85rem; }
+.toc li { margin-bottom: 1.05rem; }
 .toc a {
   display: block;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.35;
   color: var(--ink-muted);
   text-decoration: none;
@@ -262,8 +263,8 @@ body {
 .post-header { padding-top: 3rem; }
 .post-title {
   margin: 0;
-  font-size: clamp(2.6rem, 5.6vw, 4.1rem);
-  font-weight: 600;
+  font-size: clamp(2.5rem, 5.2vw, 3.8rem);
+  font-weight: 560;
   line-height: 1.02;
   letter-spacing: -0.028em;
   color: var(--ink-strong);
@@ -271,12 +272,12 @@ body {
 }
 .post-standfirst {
   margin: 1.1rem 0 0;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-style: italic;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--ink);
 }
-.post-meta { margin: 2rem 0 0; }
+.post-meta { margin: 2.25rem 0 0; }
 
 .post-body { padding-top: 2.25rem; }
 .post-body p { margin: 0 0 1.4rem; }

@@ -33,18 +33,12 @@ layout: default
     <header class="post-header">
       <h1 class="post-title">{{ page.title }}</h1>
 
-      {%- if page.description %}
-      <p class="post-standfirst">{{ page.description }}</p>
+      {%- if page.subtitle %}
+      <p class="post-standfirst">{{ page.subtitle }}</p>
       {%- endif %}
 
       <div class="post-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %Y" }}</time>
-        {%- if page.categories.size > 0 %}
-        <span class="sep">&middot;</span>
-        <span>{{ page.categories | first }}</span>
-        {%- endif %}
-        <span class="sep">&middot;</span>
-        <span>{{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
       </div>
     </header>
 
@@ -94,17 +88,19 @@ layout: default
     var current = null;
     function update() {
       var line = 120;                       /* a little below the top of the viewport */
-      var index = 0;
+      var index = -1;                       /* -1 = still above the first section */
       for (var i = 0; i < targets.length; i++) {
         if (targets[i] && targets[i].getBoundingClientRect().top <= line) index = i;
       }
       if (index === current) return;
-      if (current !== null) {
+      if (current !== null && current > -1) {
         links[current].classList.remove('is-current');
         links[current].removeAttribute('aria-current');
       }
-      links[index].classList.add('is-current');
-      links[index].setAttribute('aria-current', 'location');
+      if (index > -1) {
+        links[index].classList.add('is-current');
+        links[index].setAttribute('aria-current', 'location');
+      }
       current = index;
     }
 

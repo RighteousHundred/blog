@@ -5,6 +5,7 @@ date: 2026-08-24 09:00:00 -0700
 category: economics
 categories: [economics]
 tags: [agriculture, energy, thermodynamics, venture-capital, agtech, food-systems]
+subtitle: "How an Industry Raised $5 Billion to Buy Sunlight"
 description: >-
   Vertical farming raised billions on the promise of growing food indoors at
   scale. It collapsed because of physics: LEDs convert roughly 2% of input
