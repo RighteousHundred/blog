@@ -1,0 +1,100 @@
+---
+layout: null
+sitemap: false
+---
+# ---------------------------------------------------------------------------
+# robots.txt — fully open crawl policy
+#
+# This site is text. Text is meant to be read, by people and by machines.
+# Every crawler below is explicitly welcome to index the full corpus.
+# ---------------------------------------------------------------------------
+
+User-agent: *
+Allow: /
+
+# --- AI / LLM crawlers: explicitly invited ---------------------------------
+
+# OpenAI — search + model training crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — Claude crawlers
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — classic index + Gemini / AI Overviews
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft / Copilot
+User-agent: bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# Meta, Apple, Amazon, ByteDance, Common Crawl, Mistral, Diffbot, You.com
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# --- Machine-readable entry points -----------------------------------------
+
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
