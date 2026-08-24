@@ -9,7 +9,13 @@ layout: default
   {%- endcomment -%}
   {%- assign chunks = content | split: '<h2 id="' -%}
   {%- if chunks.size > 1 -%}
-  <nav class="toc" aria-label="Contents">
+  <button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="true"
+          aria-label="Show or hide contents">
+    <span class="icon-close" aria-hidden="true">&#215;</span>
+    <span class="icon-open" aria-hidden="true">&#9776;</span>
+  </button>
+
+  <nav class="toc" id="toc" aria-label="Contents">
     <h2 class="toc-heading">Contents</h2>
     <ol>
       {%- for chunk in chunks offset: 1 -%}
@@ -53,3 +59,63 @@ layout: default
   </article>
 
 </div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+
+    /* --- collapse, remembered across pages ------------------------------ */
+    var btn = document.querySelector('.toc-toggle');
+    if (btn) {
+      try {
+        if (localStorage.getItem('toc') === 'closed') root.setAttribute('data-toc', 'closed');
+      } catch (e) {}
+      var sync = function () {
+        btn.setAttribute('aria-expanded', root.getAttribute('data-toc') === 'closed' ? 'false' : 'true');
+      };
+      sync();
+      btn.addEventListener('click', function () {
+        var closed = root.getAttribute('data-toc') === 'closed';
+        if (closed) root.removeAttribute('data-toc');
+        else root.setAttribute('data-toc', 'closed');
+        try { localStorage.setItem('toc', closed ? 'open' : 'closed'); } catch (e) {}
+        sync();
+      });
+    }
+
+    /* --- highlight the section currently being read ---------------------- */
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    if (!links.length) return;
+
+    var targets = links.map(function (a) {
+      return document.getElementById(decodeURIComponent(a.hash.slice(1)));
+    });
+
+    var current = null;
+    function update() {
+      var line = 140;                       /* a little below the sticky header */
+      var index = 0;
+      for (var i = 0; i < targets.length; i++) {
+        if (targets[i] && targets[i].getBoundingClientRect().top <= line) index = i;
+      }
+      if (index === current) return;
+      if (current !== null) {
+        links[current].classList.remove('is-current');
+        links[current].removeAttribute('aria-current');
+      }
+      links[index].classList.add('is-current');
+      links[index].setAttribute('aria-current', 'location');
+      current = index;
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { update(); ticking = false; });
+    }
+    update();
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+  })();
+</script>

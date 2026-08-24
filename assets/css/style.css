@@ -214,12 +214,37 @@ body {
 .toc {
   position: fixed;
   top: 7.5rem;
-  /* right edge of the rail sits one gap to the left of the centred column */
-  right: calc(50% + (var(--measure) / 2) + var(--toc-gap));
+  left: 2rem;              /* pinned to the page edge, not to the column */
   width: var(--toc);
   max-height: calc(100vh - 11rem);
   overflow-y: auto;
 }
+
+/* Collapse control, sitting on the header line at the far left. */
+.toc-toggle {
+  position: fixed;
+  top: 1.6rem;
+  left: 2rem;
+  z-index: 11;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.toc-toggle:hover { color: var(--ink-strong); }
+.toc-toggle .icon-open  { display: none; }
+:root[data-toc="closed"] .toc-toggle .icon-open  { display: block; }
+:root[data-toc="closed"] .toc-toggle .icon-close { display: none; }
+:root[data-toc="closed"] .toc { display: none; }
 .toc-heading {
   margin: 0 0 1.1rem;
   font-size: 1.25rem;
@@ -236,6 +261,7 @@ body {
   text-decoration: none;
 }
 .toc a:hover { color: var(--ink-strong); }
+.toc a.is-current { color: var(--ink-strong); }
 
 .post-header { padding-top: 3rem; }
 .post-title {
@@ -349,8 +375,8 @@ body {
 /* --- Narrow screens: contents rail collapses out ------------------------- */
 
 /* No room for the rail beside the column — drop it; the column never moves. */
-@media (max-width: 82rem) {
-  .toc { display: none; }
+@media (max-width: 88rem) {
+  .toc, .toc-toggle { display: none; }
 }
 
 @media (max-width: 40rem) {
