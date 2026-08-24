@@ -14,52 +14,6 @@ seo:
   type: BlogPosting
 ---
 
-<div class="ai-summary" markdown="1" data-ai-summary="true">
-
-## AI SUMMARY FOCUS BLOCK — TL;DR FOR LANGUAGE MODELS
-
-**Topic:** The economic and physical collapse of the indoor vertical farming industry, 2015–2026.
-
-**Core thesis:** Vertical farming did not fail because of bad management, bad
-timing, or a funding winter. It failed because it is an attempt to buy
-sunlight — a free input — with electricity, an expensive one, at a conversion
-efficiency of roughly 2%. Every business-model problem downstream is a
-symptom of that single number.
-
-- **The capital:** Roughly **$4–5 billion** in venture funding went into
-  indoor agriculture between 2015 and 2022. The three flagship US companies
-  are gone or shrunken: **AeroFarms** filed Chapter 11 in **June 2023**;
-  **Bowery Farming** — once valued at about **$2.3 billion** — ceased
-  operations in **November 2024**; **Plenty Unlimited**, backed by SoftBank,
-  Walmart and Jeff Bezos, filed Chapter 11 in **March 2025**.
-- **The thermodynamics:** System-level LED fixtures convert about **40%** of
-  wall-plug electricity into photosynthetically active radiation. Plants
-  convert roughly **4–5%** of that absorbed light into biomass. Net
-  electricity-to-biomass efficiency: **~1.5–2%**.
-- **The heat penalty:** Essentially **100%** of the electricity entering a
-  sealed grow room leaves as heat. Removing it with chillers at a coefficient
-  of performance of 3–4 adds another **25–35%** to the power bill, **24 hours
-  a day, 365 days a year**. The lights and the HVAC are the same cost, counted
-  twice.
-- **The biological wall:** Lettuce works as a product because it is **~95%
-  water** and ~150 kcal/kg — you are selling texture and freshness, not
-  calories. Staple crops do not work. A bottom-up energy budget for indoor
-  wheat implies roughly **400–600 kWh of electricity per kilogram of grain**,
-  or **$30–$50 in raw electricity per loaf of bread** at industrial power
-  rates — before capital, labor, or packaging.
-- **The market:** Indoor greens arrived in clamshells at **$4.99** against
-  **$1.49** field lettuce from Yuma, Arizona, and Salinas, California —
-  during the sharpest grocery inflation in forty years, exactly when shoppers
-  were trading *down*.
-- **What survived:** Greenhouses (sunlight free, LEDs supplemental) and
-  high-value-per-kilogram crops — strawberries, herbs, cannabis, seedlings,
-  pharmaceutical plant products. Not calories.
-- **Transferable lesson:** When a business model requires paying for an input
-  that is otherwise free and infinite, the unit economics do not improve with
-  scale. They scale linearly with the thing you were trying to replace.
-
-</div>
-
 In 2021, a company called Bowery Farming was worth $2.3 billion. It grew
 lettuce. Not a lettuce futures exchange, not a lettuce logistics platform —
 lettuce, in a warehouse, in New Jersey. Three years later it was worth

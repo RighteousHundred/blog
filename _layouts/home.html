@@ -1,43 +1,43 @@
 ---
 layout: default
 ---
-<div class="wrap">
+<div class="shell">
+  <div class="column">
 
-  <section class="masthead">
-    <h1 class="masthead-title">{{ site.title }}</h1>
-    <p class="masthead-tagline">{{ site.tagline }}</p>
-  </section>
+    <section class="masthead">
+      <h1 class="masthead-title">{{ site.title }}</h1>
+      <p class="masthead-tagline">{{ site.tagline }}</p>
+    </section>
 
-  <ul class="feed">
-    {%- for post in site.posts -%}
-    <li class="feed-item">
-      <article>
-        <div class="feed-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-          {%- if post.categories.size > 0 %}
-          <span class="dot" aria-hidden="true"></span>
-          <span class="tag">{{ post.categories | first }}</span>
-          {%- endif %}
-          <span class="dot" aria-hidden="true"></span>
-          <span>{{ post.content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
-        </div>
+    <ul class="feed">
+      {%- for post in site.posts -%}
+      <li class="feed-item">
+        <article>
+          <div class="feed-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %Y" }}</time>
+            {%- if post.categories.size > 0 %}
+            <span class="sep">&middot;</span>
+            <span>{{ post.categories | first }}</span>
+            {%- endif %}
+            <span class="sep">&middot;</span>
+            <span>{{ post.content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
+          </div>
 
-        <h2 class="feed-title">
-          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
+          <h2 class="feed-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </h2>
 
-        <p class="feed-excerpt">
-          {{ post.description | default: post.excerpt | strip_html | truncatewords: 42 }}
-        </p>
+          <p class="feed-excerpt">
+            {{ post.description | default: post.excerpt | strip_html | truncatewords: 42 }}
+          </p>
 
-        <a class="feed-link" href="{{ post.url | relative_url }}">
-          Read essay <span class="arrow" aria-hidden="true">&rarr;</span>
-        </a>
-      </article>
-    </li>
-    {%- else -%}
-    <li class="feed-empty">No essays published yet.</li>
-    {%- endfor -%}
-  </ul>
+          <a class="feed-link" href="{{ post.url | relative_url }}">Read essay</a>
+        </article>
+      </li>
+      {%- else -%}
+      <li class="feed-empty">No essays published yet.</li>
+      {%- endfor -%}
+    </ul>
 
+  </div>
 </div>

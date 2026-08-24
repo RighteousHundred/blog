@@ -1,34 +1,55 @@
 ---
 layout: default
 ---
-<article class="post">
+<div class="shell post-grid">
 
-  <header class="post-header wrap">
-    <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-      {%- if page.categories.size > 0 %}
-      <span class="dot" aria-hidden="true"></span>
-      <span class="tag">{{ page.categories | first }}</span>
+  {%- comment -%}
+    Contents rail, built from the rendered h2s so it never drifts from the
+    essay. It is fixed in the left margin and does not affect the column.
+  {%- endcomment -%}
+  {%- assign chunks = content | split: '<h2 id="' -%}
+  {%- if chunks.size > 1 -%}
+  <nav class="toc" aria-label="Contents">
+    <h2 class="toc-heading">Contents</h2>
+    <ol>
+      {%- for chunk in chunks offset: 1 -%}
+        {%- assign id = chunk | split: '"' | first -%}
+        {%- assign heading = chunk | split: '</h2>' | first -%}
+        {%- assign label = heading | split: '">' | last | strip_html | strip -%}
+        <li><a href="#{{ id }}">{{ label }}</a></li>
+      {%- endfor -%}
+    </ol>
+  </nav>
+  {%- endif -%}
+
+  <article class="column">
+
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+
+      {%- if page.description %}
+      <p class="post-standfirst">{{ page.description }}</p>
       {%- endif %}
-      <span class="dot" aria-hidden="true"></span>
-      <span>{{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
+
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %Y" }}</time>
+        {%- if page.categories.size > 0 %}
+        <span class="sep">&middot;</span>
+        <span>{{ page.categories | first }}</span>
+        {%- endif %}
+        <span class="sep">&middot;</span>
+        <span>{{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
+      </div>
+    </header>
+
+    <div class="post-body">
+      {{ content }}
     </div>
 
-    <h1 class="post-title">{{ page.title }}</h1>
+    <footer class="post-footer">
+      <a class="back-link" href="{{ '/' | relative_url }}">&larr; All essays</a>
+    </footer>
 
-    {%- if page.description %}
-    <p class="post-standfirst">{{ page.description }}</p>
-    {%- endif %}
-  </header>
+  </article>
 
-  <div class="post-body wrap">
-    {{ content }}
-  </div>
-
-  <footer class="post-footer wrap">
-    <a class="back-link" href="{{ '/' | relative_url }}">
-      <span class="arrow" aria-hidden="true">&larr;</span> All essays
-    </a>
-  </footer>
-
-</article>
+</div>
