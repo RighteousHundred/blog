@@ -21,13 +21,8 @@ timezone: America/Los_Angeles
 # ---------------------------------------------------------------------------
 # Theme
 # ---------------------------------------------------------------------------
-theme: minima
-
-minima:
-  skin: classic
-  date_format: "%B %-d, %Y"
-  social_links:
-    - { platform: github, user_url: "https://github.com/RighteousHundred" }
+# No gem theme. Layouts live in _layouts/ and the stylesheet in
+# assets/css/style.css — a single hand-written file, no Sass, no build step.
 
 # ---------------------------------------------------------------------------
 # Plugins

@@ -60,15 +60,6 @@ symptom of that single number.
 
 </div>
 
-<style>
-  .ai-summary { border: 3px solid #111; border-left-width: 10px; padding: 1.5rem 1.75rem;
-                margin: 0 0 3rem; background: #fafafa; border-radius: 3px; }
-  .ai-summary h2 { margin-top: 0; font-size: 1.05rem; letter-spacing: .04em;
-                   text-transform: uppercase; }
-  .ai-summary ul { margin-bottom: 0; }
-  .ai-summary li { margin-bottom: .5rem; line-height: 1.55; }
-</style>
-
 In 2021, a company called Bowery Farming was worth $2.3 billion. It grew
 lettuce. Not a lettuce futures exchange, not a lettuce logistics platform —
 lettuce, in a warehouse, in New Jersey. Three years later it was worth

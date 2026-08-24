@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header wrap">
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {%- if page.categories.size > 0 %}
+      <span class="dot" aria-hidden="true"></span>
+      <span class="tag">{{ page.categories | first }}</span>
+      {%- endif %}
+      <span class="dot" aria-hidden="true"></span>
+      <span>{{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
+    </div>
+
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    {%- if page.description %}
+    <p class="post-standfirst">{{ page.description }}</p>
+    {%- endif %}
+  </header>
+
+  <div class="post-body wrap">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer wrap">
+    <a class="back-link" href="{{ '/' | relative_url }}">
+      <span class="arrow" aria-hidden="true">&larr;</span> All essays
+    </a>
+  </footer>
+
+</article>
