@@ -189,7 +189,7 @@ body {
 
 .feed-excerpt { margin: 0 0 1rem; color: var(--ink-muted); line-height: 1.55; }
 
-.feed-link, .back-link {
+.back-link {
   display: inline-block;
   font-size: 1.05rem;
   color: var(--ink-muted);
@@ -197,7 +197,7 @@ body {
   text-decoration-color: var(--rule-strong);
   text-underline-offset: .18em;
 }
-.feed-link:hover, .back-link:hover { color: var(--ink-strong); text-decoration-color: currentColor; }
+.back-link:hover { color: var(--ink-strong); text-decoration-color: currentColor; }
 
 .feed-empty { color: var(--ink-faint); font-style: italic; }
 

@@ -30,8 +30,6 @@ layout: default
           <p class="feed-excerpt">
             {{ post.description | default: post.excerpt | strip_html | truncatewords: 42 }}
           </p>
-
-          <a class="feed-link" href="{{ post.url | relative_url }}">Read essay</a>
         </article>
       </li>
       {%- else -%}
