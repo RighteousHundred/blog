@@ -232,12 +232,10 @@ body {
   border: 0;
   background: none;
   color: var(--ink);
-  font-family: var(--serif);
-  font-size: 1.9rem;
-  font-weight: 300;
-  line-height: 1;
+  line-height: 0;
   cursor: pointer;
 }
+.toc-toggle svg { display: block; width: 1.5rem; height: 1.5rem; }
 .toc-toggle:hover { color: var(--ink-strong); }
 .toc-toggle .icon-open  { display: none; }
 :root[data-toc="closed"] .toc-toggle .icon-open  { display: block; }
