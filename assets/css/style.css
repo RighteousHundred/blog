@@ -227,7 +227,7 @@ body {
   height: 2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;   /* ink starts at the control's own left edge */
   padding: 0;
   border: 0;
   background: none;
@@ -235,7 +235,9 @@ body {
   line-height: 0;
   cursor: pointer;
 }
-.toc-toggle svg { display: block; width: 1.5rem; height: 1.5rem; }
+/* Ink spans the whole viewBox, so the svg's left edge is the visible left
+   edge. overflow stays visible so the round caps are not clipped. */
+.toc-toggle svg { display: block; width: 1.35rem; height: 1.35rem; overflow: visible; }
 .toc-toggle:hover { color: var(--ink-strong); }
 .toc-toggle .icon-open  { display: none; }
 :root[data-toc="closed"] .toc-toggle .icon-open  { display: block; }
