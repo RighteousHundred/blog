@@ -147,21 +147,13 @@ body {
 
 .masthead { padding: 5rem 0 3rem; }
 .masthead-title {
-  margin: 0 0 .75rem;
+  margin: 0;
   font-size: clamp(2.5rem, 5.2vw, 3.8rem);
   font-weight: 560;
   line-height: 1.02;
   letter-spacing: -0.025em;
   color: var(--ink-strong);
 }
-.masthead-tagline {
-  margin: 0;
-  font-size: 1.3rem;
-  font-style: italic;
-  line-height: 1.45;
-  color: var(--ink-muted);
-}
-
 .feed { list-style: none; margin: 0; padding: 0 0 4rem; }
 .feed-item { padding-top: 3rem; border-top: 1px solid var(--rule); margin-bottom: 3rem; }
 .feed-item:last-child { margin-bottom: 0; }
@@ -380,7 +372,7 @@ body {
 @media (max-width: 40rem) {
   :root { --pad: 1.5rem; }
   body { font-size: 1.15rem; }
-  .masthead { padding: 3rem 0 2rem; }
+  .masthead { padding: 3rem 0 1.75rem; }
   .post-header { padding-top: 2rem; }
   .site-header { padding: 1rem 0; }
   .site-mark { font-size: 1.2rem; }
