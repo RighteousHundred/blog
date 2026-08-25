@@ -2,33 +2,58 @@
 layout: default
 ---
 <div class="shell">
-  <div class="column">
 
-    <section class="masthead">
-      <h1 class="masthead-title">{{ site.masthead_heading | default: site.title }}</h1>
-    </section>
+  {%- comment -%}
+    A front page, not a heading plus a list. There is deliberately no h1:
+    the nameplate in the header carries the identity, and every story
+    headline is an h2, the way a news front page is structured.
+  {%- endcomment -%}
 
-    <ul class="feed">
-      {%- for post in site.posts -%}
-      <li class="feed-item">
-        <article>
-          <div class="feed-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %Y" }}</time>
-          </div>
-
-          <h2 class="feed-title">
-            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-          </h2>
-
-          <p class="feed-excerpt">
-            {{ post.description | default: post.excerpt | strip_html | truncatewords: 42 }}
-          </p>
-        </article>
-      </li>
-      {%- else -%}
-      <li class="feed-empty">No essays published yet.</li>
-      {%- endfor -%}
-    </ul>
-
+  {%- if site.posts.size > 0 -%}
+  <div class="dateline">
+    <span class="dateline-label">Latest</span>
+    <span class="dateline-rule" aria-hidden="true"></span>
+    <time datetime="{{ site.posts.first.date | date_to_xmlschema }}">
+      {{ site.posts.first.date | date: "%B %-d, %Y" }}
+    </time>
   </div>
+
+  {%- assign lead = site.posts.first -%}
+  <article class="lead">
+    <h2 class="lead-title">
+      <a href="{{ lead.url | relative_url }}">{{ lead.title | escape }}</a>
+    </h2>
+
+    {%- if lead.subtitle %}
+    <p class="lead-deck">{{ lead.subtitle }}</p>
+    {%- endif %}
+
+    <div class="lead-excerpt">
+      {{ lead.description | default: lead.excerpt | strip_html | truncatewords: 60 }}
+    </div>
+  </article>
+  {%- endif -%}
+
+  {%- if site.posts.size > 1 -%}
+  <div class="grid">
+    {%- for post in site.posts offset: 1 -%}
+    <article class="story">
+      <h2 class="story-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </h2>
+      <p class="story-excerpt">
+        {{ post.description | default: post.excerpt | strip_html | truncatewords: 26 }}
+      </p>
+      <p class="story-date">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      </p>
+    </article>
+    {%- endfor -%}
+  </div>
+  {%- endif -%}
+
+  {%- if site.posts.size == 0 -%}
+  <p class="feed-empty">No essays published yet.</p>
+  {%- endif -%}
+
 </div>

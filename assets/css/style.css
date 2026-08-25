@@ -143,70 +143,100 @@ body {
 :root[data-theme="light"] .theme-toggle::after { transform: translate(0, -50%); }
 .theme-toggle:hover { border-color: var(--ink-faint); }
 
-/* --- Home ---------------------------------------------------------------- */
-
-.masthead { padding: 5rem 0 3rem; }
-.masthead-title {
-  margin: 0;
-  font-size: clamp(2.5rem, 5.2vw, 3.8rem);
-  font-weight: 560;
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  color: var(--ink-strong);
-}
-.feed { list-style: none; margin: 0; padding: 0 0 4rem; }
-.feed-item { padding-top: 3rem; border-top: 1px solid var(--rule); margin-bottom: 3rem; }
-.feed-item:last-child { margin-bottom: 0; }
-
-.feed-meta, .post-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: .5rem;
-  font-size: 1rem;
-  color: var(--ink-faint);
-  margin-bottom: .75rem;
-}
-.sep { opacity: .55; }
-
-.feed-title {
-  margin: 0 0 .75rem;
-  font-size: clamp(1.9rem, 3.6vw, 2.4rem);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-}
-.feed-title a { color: var(--ink-strong); text-decoration: none; }
-.feed-title a:hover { text-decoration: underline; text-underline-offset: .12em; }
-
-.feed-excerpt { margin: 0 0 1rem; color: var(--ink-muted); line-height: 1.55; }
-
-.back-link {
-  display: inline-block;
-  font-size: 1.05rem;
-  color: var(--ink-muted);
-  text-decoration: underline;
-  text-decoration-color: var(--rule-strong);
-  text-underline-offset: .18em;
-}
-.back-link:hover { color: var(--ink-strong); text-decoration-color: currentColor; }
-
-.feed-empty { color: var(--ink-faint); font-style: italic; }
-
-/* --- Reading progress ---------------------------------------------------
-   A long essay is less daunting when you can see how far in you are.
+/* --- Front page ----------------------------------------------------------
+   The homepage runs wider than an article and carries no h1: the nameplate
+   in the header is the identity, and every headline is an h2.
    ----------------------------------------------------------------------- */
 
-.progress {
-  position: fixed;
-  top: 0; left: 0;
-  height: 2px;
-  width: 0;
-  background: var(--ink);
-  opacity: .75;
-  z-index: 20;
-  will-change: width;
+.layout-home .shell { max-width: calc(1060px + (var(--pad) * 2)); }
+
+.dateline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 2.25rem;
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
 }
+.dateline-label { font-weight: 600; color: var(--ink-strong); }
+.dateline-rule { flex: 1; height: 1px; background: var(--rule-strong); }
+
+/* --- Lead story ---------------------------------------------------------- */
+
+.lead {
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.lead-title {
+  margin: 0 0 1rem;
+  max-width: 20ch;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+}
+.lead-title a { color: var(--ink-strong); text-decoration: none; }
+.lead-title a:hover { text-decoration: underline; text-underline-offset: .1em; }
+
+.lead-deck {
+  margin: 0 0 1.5rem;
+  max-width: 44ch;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.lead-excerpt {
+  max-width: 70ch;
+  color: var(--ink-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Two columns of body copy under the lead reads as a front page. */
+@media (min-width: 56rem) {
+  .lead-excerpt {
+    column-count: 2;
+    column-gap: 3rem;
+    max-width: none;
+  }
+}
+
+/* --- Secondary stories --------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 2.5rem 3rem;
+  padding: 2.5rem 0 4rem;
+}
+.story { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+.story-title {
+  margin: 0 0 .6rem;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+.story-title a { color: var(--ink-strong); text-decoration: none; }
+.story-title a:hover { text-decoration: underline; text-underline-offset: .1em; }
+.story-excerpt {
+  margin: 0 0 .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+.story-date {
+  margin: 0;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.feed-empty { color: var(--ink-faint); font-style: italic; }
 
 /* --- Post: contents rail + article -------------------------------------- */
 
@@ -395,6 +425,9 @@ body {
 
 /* --- Footer -------------------------------------------------------------- */
 
+.layout-home .lead { padding-bottom: 4rem; border-bottom: 0; }
+.layout-home .grid:empty { display: none; }
+
 .site-footer { border-top: 1px solid var(--rule); padding: 2.5rem 0 4rem; }
 .footer-line { margin: 0 0 .4rem; font-size: 1rem; color: var(--ink-faint); }
 .footer-line a {
@@ -414,6 +447,8 @@ body {
 
 @media (max-width: 40rem) {
   :root { --pad: 1.5rem; }
+  .dateline { margin: 2rem 0 1.5rem; }
+  .lead-deck { font-size: 1.2rem; }
   body { font-size: 1.1875rem; }
   .pullquote { width: 100%; margin-left: 0; font-size: 1.3rem; }
   .post-body > p:first-of-type::first-letter { font-size: 3.1em; }
