@@ -26,7 +26,7 @@
   --serif: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman", serif;
   --mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-  --measure: 540px;   /* text width every element aligns to */
+  --measure: 680px;   /* text width every element aligns to */
   --pad:     2rem;    /* gutter either side of it */
   --toc:     15rem;   /* contents rail, parked in the left margin */
   --toc-gap: 3rem;
@@ -408,7 +408,7 @@ body {
 /* --- Narrow screens: contents rail collapses out ------------------------- */
 
 /* No room for the rail beside the column — drop it; the column never moves. */
-@media (max-width: 76rem) {
+@media (max-width: 84rem) {
   .toc, .toc-toggle { display: none; }
 }
 
