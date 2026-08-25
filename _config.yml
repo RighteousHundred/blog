@@ -1,8 +1,12 @@
 # ---------------------------------------------------------------------------
 # Site identity
 # ---------------------------------------------------------------------------
-title: "Paying for the Sun"
-tagline: "Long-form essays on infrastructure, energy, and the economics of hard things"
+title: "Mercantile Disquisition"
+
+# The homepage <h1>. Deliberately not the site title: the masthead already
+# carries the name, so the heading says what the writing is about instead.
+masthead_heading: "The Economics of Physical Things"
+tagline: "Why hard things cost what they cost"
 description: >-
   Deep-dive, research-driven essays on the economics of physical systems:
   energy, agriculture, logistics, and the industries that quietly run on
