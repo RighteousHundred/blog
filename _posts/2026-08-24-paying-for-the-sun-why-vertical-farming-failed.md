@@ -76,6 +76,10 @@ converted electricity*, both shocks hit the same line item.
 
 The bankruptcies came in a wave.
 
+<aside class="pullquote" markdown="1">
+They were unprofitable the entire time, for a reason that no amount of scale, software, or patience was going to fix.
+</aside>
+
 Fifth Season shut down abruptly in October 2022. Infarm — which had been
 operating in-store growing units across European supermarkets — announced a
 retreat from most of Europe in late 2022 and cut the majority of its staff.
@@ -137,6 +141,10 @@ Round it up, be charitable, call it **2%**.
 
 Two percent. For every hundred joules of electricity you buy, two joules end
 up as plant.
+
+<aside class="pullquote" markdown="1">
+Energy is not a line item. Energy is the business, with some plants attached.
+</aside>
 
 And now the part that turns a bad number into a fatal one.
 
@@ -209,6 +217,10 @@ kilocalories of electricity to produce 150 kilocalories of food. That is a
 for energy.
 
 Now try to feed someone.
+
+<aside class="pullquote" markdown="1">
+Five hundred and sixty kilowatt-hours of electricity. For one loaf of bread.
+</aside>
 
 Take a loaf of bread. A standard 800-gram loaf uses about 570 grams of flour,
 which at ~75% milling extraction requires about 750 grams of wheat grain.
@@ -285,6 +297,10 @@ scale and automation, while field costs would rise with drought, labor
 shortages, water restrictions, and recall risk. There was real evidence for
 the second half. California and Arizona water allocations were tightening.
 E. coli recalls in romaine were a recurring national story. Labor was scarce.
+
+<aside class="pullquote" markdown="1">
+You do not out-scale a competitor whose energy bill is zero.
+</aside>
 
 But the gap didn't close, for three reasons that compound.
 

@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <div class="shell post-grid">
 
   {%- comment -%}
@@ -110,13 +112,23 @@ layout: default
       current = index;
     }
 
+    var bar = document.getElementById('progress');
+    function progress() {
+      if (!bar) return;
+      var doc = document.documentElement;
+      var run = doc.scrollHeight - doc.clientHeight;
+      var pct = run > 0 ? (doc.scrollTop || document.body.scrollTop) / run : 0;
+      bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
+    }
+
     var ticking = false;
     function onScroll() {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(function () { update(); ticking = false; });
+      requestAnimationFrame(function () { update(); progress(); ticking = false; });
     }
     update();
+    progress();
     addEventListener('scroll', onScroll, { passive: true });
     addEventListener('resize', onScroll);
   })();

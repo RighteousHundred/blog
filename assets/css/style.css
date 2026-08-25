@@ -57,8 +57,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.25rem;         /* 20px */
-  line-height: 1.6;
+  font-size: 1.1875rem;       /* 19px — more words per line at a 540px column */
+  line-height: 1.62;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -193,6 +193,21 @@ body {
 
 .feed-empty { color: var(--ink-faint); font-style: italic; }
 
+/* --- Reading progress ---------------------------------------------------
+   A long essay is less daunting when you can see how far in you are.
+   ----------------------------------------------------------------------- */
+
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--ink);
+  opacity: .75;
+  z-index: 20;
+  will-change: width;
+}
+
 /* --- Post: contents rail + article -------------------------------------- */
 
 .post-grid {
@@ -273,10 +288,36 @@ body {
 .post-meta { margin: 2.25rem 0 0; }
 
 .post-body { padding-top: 2.25rem; }
-.post-body p { margin: 0 0 1.4rem; }
+.post-body p { margin: 0 0 1.35rem; }
+
+/* The opening paragraph carries a drop cap, the way a feature does. */
+.post-body > p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.5em;
+  line-height: .8;
+  padding: .06em .09em 0 0;
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+/* Pull quotes break the column so the page is not one unbroken ribbon. */
+.pullquote {
+  width: calc(100% + 7rem);
+  margin: 2.75rem 0 2.75rem -3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  text-align: center;
+  color: var(--ink-strong);
+  text-wrap: balance;
+}
 
 .post-body h2 {
-  margin: 3.25rem 0 1.25rem;
+  margin: 3.5rem 0 1.35rem;
   font-size: 1.9rem;
   font-weight: 600;
   line-height: 1.15;
@@ -371,7 +412,9 @@ body {
 
 @media (max-width: 40rem) {
   :root { --pad: 1.5rem; }
-  body { font-size: 1.15rem; }
+  body { font-size: 1.0625rem; }
+  .pullquote { width: 100%; margin-left: 0; font-size: 1.3rem; }
+  .post-body > p:first-of-type::first-letter { font-size: 3.1em; }
   .masthead { padding: 3rem 0 1.75rem; }
   .post-header { padding-top: 2rem; }
   .site-header { padding: 1rem 0; }
