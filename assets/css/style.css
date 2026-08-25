@@ -57,8 +57,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.1875rem;       /* 19px — more words per line at a 540px column */
-  line-height: 1.62;
+  font-size: 1.3125rem;       /* 21px — long-form wants confident, airy type */
+  line-height: 1.65;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -288,7 +288,7 @@ body {
 .post-meta { margin: 2.25rem 0 0; }
 
 .post-body { padding-top: 2.25rem; }
-.post-body p { margin: 0 0 1.35rem; }
+.post-body p { margin: 0 0 1.5rem; }
 
 /* The opening paragraph carries a drop cap, the way a feature does. */
 .post-body > p:first-of-type::first-letter {
@@ -317,8 +317,10 @@ body {
 }
 
 .post-body h2 {
-  margin: 3.5rem 0 1.35rem;
-  font-size: 1.9rem;
+  margin: 4.5rem 0 1.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 2rem;
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -360,7 +362,7 @@ body {
 }
 .post-body blockquote p:last-child { margin-bottom: 0; }
 
-.post-body hr { margin: 3rem 0; border: 0; border-top: 1px solid var(--rule); }
+.post-body hr { display: none; }
 
 .post-body code {
   font-family: var(--mono);
@@ -412,7 +414,7 @@ body {
 
 @media (max-width: 40rem) {
   :root { --pad: 1.5rem; }
-  body { font-size: 1.0625rem; }
+  body { font-size: 1.1875rem; }
   .pullquote { width: 100%; margin-left: 0; font-size: 1.3rem; }
   .post-body > p:first-of-type::first-letter { font-size: 3.1em; }
   .masthead { padding: 3rem 0 1.75rem; }
